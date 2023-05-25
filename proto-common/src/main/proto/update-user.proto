@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package com.example;
+
+option java_package = "com.example";
+option java_multiple_files = true;
+
+message UserUpdateRequest{
+
+  int64 time =1;
+  string user_id = 2;
+
+}
+
+message UserUpdateResponse{
+  bool isUpdate = 1;
+}
+
+service UpdateUser{
+  rpc updateUser(UserUpdateRequest) returns (UserUpdateResponse) {};
+}

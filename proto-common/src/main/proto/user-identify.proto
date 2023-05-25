@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package com.example;
+
+option java_package = "com.example";
+option java_multiple_files = true;
+
+message UserIdentifyRequest{
+  string user_id = 1;
+
+  string service_id = 2;
+}
+
+message UserIdentifyResponse{
+
+  string user_case = 1;
+
+}
+
+service UserIdentify{
+  rpc identifyUser(UserIdentifyRequest) returns (UserIdentifyResponse) {};
+}
+
