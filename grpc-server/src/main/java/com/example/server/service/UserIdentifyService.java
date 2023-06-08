@@ -4,9 +4,10 @@ import com.example.UserIdentifyGrpc.UserIdentifyImplBase;
 import com.example.UserIdentifyRequest;
 import com.example.UserIdentifyResponse;
 import io.grpc.stub.StreamObserver;
-import net.devh.boot.grpc.server.service.GrpcService;
+import org.lognet.springboot.grpc.GRpcService;
 
-@GrpcService
+
+@GRpcService
 public class UserIdentifyService extends UserIdentifyImplBase {
 
   @Override

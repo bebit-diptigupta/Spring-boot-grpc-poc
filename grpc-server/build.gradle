@@ -1,6 +1,6 @@
 plugins {
     id 'java'
-    id 'org.springframework.boot' version '2.5.6'
+    id 'org.springframework.boot' version '3.1.0'
     id 'io.spring.dependency-management' version '1.0.11.RELEASE'
 }
 
@@ -15,7 +15,11 @@ repositories {
 dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
-    implementation 'net.devh:grpc-server-spring-boot-starter:2.14.0.RELEASE'
+    implementation("io.github.lognet:grpc-spring-boot-starter:5.1.2")
+            {
+                exclude group:"io.grpc", module:"grpc-netty-shaded"
+            }
+    implementation("io.grpc:grpc-netty:1.54.1")
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'com.example:proto-common:+'
 
