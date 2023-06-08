@@ -7,12 +7,12 @@ It generates the code in Java and Kotlin which is used in client and server serv
 
 
 # grpc-server
-This is an example of Java gRPC server which is developed using [LogNet grpc-spring-boot-starter framework ](https://github.com/LogNet/grpc-spring-boot-starter) .
+This is an example of Java gRPC server which is developed using [LogNet grpc-spring-boot-starter framework ](https://github.com/LogNet/grpc-spring-boot-starter).
 This library will work with Kotlin as well.
 
 
 # grpc-kotlin-server
-This is an example of Kotlin gRPC server which is developed using [Line Armeria](https://armeria.dev/docs/server-grpc)
+This is an example of Kotlin gRPC server which is developed using [Line Armeria](https://armeria.dev/docs/server-grpc).
 
 # grpc-client
-This is an example of Java gRPC client which is developed using 
+This is an example of Java gRPC client which is developed using [grpc-java](https://github.com/grpc/grpc-java).
