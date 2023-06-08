@@ -3,14 +3,17 @@ package com.example.client.service;
 import com.example.UserIdentifyGrpc;
 import com.example.UserIdentifyRequest;
 import com.example.UserIdentifyResponse;
-import net.devh.boot.grpc.client.inject.GrpcClient;
+import com.google.common.util.concurrent.ListenableFuture;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class ProcessorService {
 
-  @GrpcClient("user-identify")
-  private UserIdentifyGrpc.UserIdentifyBlockingStub userIdentifyStub;
+  private final UserIdentifyGrpc.UserIdentifyBlockingStub userIdentifyBlockingStub;
+
+  private final UserIdentifyGrpc.UserIdentifyFutureStub userIdentifyFutureStub;
 
   public void checkData() {
 
@@ -22,9 +25,16 @@ public class ProcessorService {
       //  .withDeadline(Deadline.after(1, TimeUnit.SECONDS))
        // .identifyUser(request);
 
-    UserIdentifyResponse response = userIdentifyStub.identifyUser(request);
+    UserIdentifyResponse response = userIdentifyBlockingStub.identifyUser(request);
 
     System.out.println(response.toString());
-  }
 
+    ListenableFuture<UserIdentifyResponse> futureResponse = userIdentifyFutureStub.identifyUser(request);
+
+    try {
+      System.out.println(futureResponse.get());
+    } catch (Throwable e) {
+      throw new RuntimeException(e);
+    }
+  }
 }
