@@ -6,9 +6,13 @@ option java_package = "com.example";
 option java_multiple_files = true;
 
 message UserIdentifyRequest{
-  string user_id = 1;
-
-  string service_id = 2;
+  string service_pk = 1;
+  string platform_pk = 2;
+  string deleted_service_id = 3;
+  int32 client_id = 4;
+  int64 timestamp_usec = 5;
+  int32 time_zone_offset = 6;
+  string referred_platform_pk = 7;
 }
 
 message UserIdentifyResponse{

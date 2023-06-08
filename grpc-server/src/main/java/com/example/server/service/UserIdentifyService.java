@@ -13,7 +13,7 @@ public class UserIdentifyService extends UserIdentifyImplBase {
   public void identifyUser(UserIdentifyRequest request,
       StreamObserver<UserIdentifyResponse> responseObserver) {
     UserIdentifyResponse response = UserIdentifyResponse.newBuilder()
-        .setUserCase(request.getUserId() + "-"+request.getServiceId())
+        .setUserCase(request.getServicePk() + "-"+request.getPlatformPk())
         .build();
 
     responseObserver.onNext(response);
