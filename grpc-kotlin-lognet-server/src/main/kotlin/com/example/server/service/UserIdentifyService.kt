@@ -8,7 +8,6 @@ import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import org.lognet.springboot.grpc.GRpcService
-import org.springframework.stereotype.Service
 
 @GRpcService
 class UserIdentifyService: UserIdentifyGrpcKt.UserIdentifyCoroutineImplBase() {
@@ -20,7 +19,9 @@ class UserIdentifyService: UserIdentifyGrpcKt.UserIdentifyCoroutineImplBase() {
         }
 
         val newServicePk = async {
-            delay(100)
+            println("test in async")
+            delay(200)
+            println("test in async after delay")
             "new-service-pk"
         }
 

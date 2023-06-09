@@ -19,7 +19,9 @@ class UserIdentifyService: UserIdentifyGrpcKt.UserIdentifyCoroutineImplBase() {
         }
 
         val newServicePk = async {
-            delay(100)
+            println("test in async")
+            delay(200)
+            println("test in async after delay")
             "new-service-pk"
         }
 
