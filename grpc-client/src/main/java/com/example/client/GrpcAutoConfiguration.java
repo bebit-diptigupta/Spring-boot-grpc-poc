@@ -2,6 +2,7 @@ package com.example.client;
 
 
 import com.example.UserIdentifyGrpc;
+import com.linecorp.armeria.client.Clients;
 import io.grpc.ManagedChannel;
 import io.grpc.netty.NettyChannelBuilder;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -25,8 +26,8 @@ public class GrpcAutoConfiguration {
   }
 
   @Bean
-  UserIdentifyGrpc.UserIdentifyFutureStub userIdentifyFutureStub(ManagedChannel managedChannel) {
-    return UserIdentifyGrpc.newFutureStub(managedChannel);
+  UserIdentifyGrpc.UserIdentifyFutureStub userIdentifyFutureStubViaArmeriaClient(ClientSettings settings) {
+    return Clients.newClient(settings.getUri(), UserIdentifyGrpc.UserIdentifyFutureStub.class);
   }
 }
 

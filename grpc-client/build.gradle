@@ -20,7 +20,12 @@ dependencies {
     implementation 'io.grpc:grpc-stub:1.54.1'
     implementation("io.grpc:grpc-netty:1.54.1")
 
+    implementation("com.linecorp.armeria:armeria-grpc:1.23.1")
+
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
     implementation 'com.example:proto-common:+'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'

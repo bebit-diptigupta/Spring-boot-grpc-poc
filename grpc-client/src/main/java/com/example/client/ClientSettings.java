@@ -11,5 +11,6 @@ public class ClientSettings {
 
   private String address;
   private int port;
+  private String uri;
 
 }

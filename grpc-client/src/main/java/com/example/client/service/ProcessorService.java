@@ -13,7 +13,7 @@ public class ProcessorService {
 
   private final UserIdentifyGrpc.UserIdentifyBlockingStub userIdentifyBlockingStub;
 
-  private final UserIdentifyGrpc.UserIdentifyFutureStub userIdentifyFutureStub;
+  private final UserIdentifyGrpc.UserIdentifyFutureStub userIdentifyFutureStubViaArmeriaClient;
 
   public void checkData() {
 
@@ -29,7 +29,7 @@ public class ProcessorService {
 
     System.out.println(response.toString());
 
-    ListenableFuture<UserIdentifyResponse> futureResponse = userIdentifyFutureStub.identifyUser(request);
+    ListenableFuture<UserIdentifyResponse> futureResponse = userIdentifyFutureStubViaArmeriaClient.identifyUser(request);
 
     try {
       System.out.println(futureResponse.get());

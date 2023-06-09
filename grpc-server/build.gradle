@@ -15,12 +15,17 @@ repositories {
 dependencies {
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
+
     implementation("io.github.lognet:grpc-spring-boot-starter:5.1.2")
             {
                 exclude group:"io.grpc", module:"grpc-netty-shaded"
             }
     implementation("io.grpc:grpc-netty:1.54.1")
+
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'io.micrometer:micrometer-registry-prometheus'
+
     implementation 'com.example:proto-common:+'
 
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
