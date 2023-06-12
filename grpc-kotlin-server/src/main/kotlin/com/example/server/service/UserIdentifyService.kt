@@ -3,13 +3,13 @@ package com.example.server.service
 import com.example.UserIdentifyGrpcKt
 import com.example.UserIdentifyRequest
 import com.example.UserIdentifyResponse
+import jakarta.inject.Named
 import kotlinx.coroutines.async
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.springframework.stereotype.Service
 
-@Service
+@Named
 class UserIdentifyService: UserIdentifyGrpcKt.UserIdentifyCoroutineImplBase() {
 
     override suspend fun identifyUser(request: UserIdentifyRequest): UserIdentifyResponse = coroutineScope {
@@ -27,7 +27,7 @@ class UserIdentifyService: UserIdentifyGrpcKt.UserIdentifyCoroutineImplBase() {
 
         UserIdentifyResponse.newBuilder()
             .setUserCase("${newServicePk.await()}_${request.servicePk}_${request.platformPk}")
-            .build();
+            .build()
     }
 
 
